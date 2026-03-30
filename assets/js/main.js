@@ -531,4 +531,55 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCarousel(currentIndex);
         };
     }
-});
+});
+
+// --- Contact Form Submission Handler ---
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending... <i class="fas fa-spinner fa-spin ml-2"></i></span>';
+
+        const formData = new FormData(contactForm);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+
+        try {
+            // NOTE: Replace with your actual production API URL if different
+            const response = await fetch('http://localhost:5041/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert('Thank you! Your message has been broadcasted successfully.');
+                contactForm.reset();
+            } else {
+                const errorData = await response.json();
+                alert('Oops! ' + (errorData.detail || 'Something went wrong. Please try again later.'));
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Failed to connect to the server. Please ensure the .NET backend is running.');
+        } finally {
+            // Restore button state
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+});

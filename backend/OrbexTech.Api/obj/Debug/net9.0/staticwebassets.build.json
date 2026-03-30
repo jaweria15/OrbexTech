@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "iagTq2POD3ERFxdm7Qyo0IWEVDEdrx3OKHVcFrSIz1g=",
+  "Source": "OrbexTech.Api",
+  "BasePath": "_content/OrbexTech.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
