@@ -629,16 +629,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const createWordSpans = (wordArr, container) => {
         wordArr.forEach(word => {
             const span = document.createElement('span');
-            span.textContent = word + ' ';
+            span.textContent = word;
             span.className = "inline-block opacity-0 translate-y-8"; // Removed blur-sm
             container.appendChild(span);
         });
     };
 
     const line1Div = document.createElement('div');
-    line1Div.className = "mb-4";
+    line1Div.className = "mb-4 flex flex-wrap justify-center gap-x-3 sm:gap-x-5";
     const line2Div = document.createElement('div');
-    line2Div.className = "text-accent-cyan"; // Make second line stand out slightly
+    line2Div.className = "flex flex-wrap justify-center gap-x-3 sm:gap-x-5 text-[#22D3EE]"; // Used direct color for consistency
 
     createWordSpans(line1, line1Div);
     createWordSpans(line2, line2Div);

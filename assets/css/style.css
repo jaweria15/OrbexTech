@@ -16,7 +16,7 @@
     --glass-border: rgba(255, 255, 255, 0.1);
     --hover-border: rgba(59, 130, 246, 0.4);
     
-    /* --- Typography --- */
+    --white: #ffffff;
     --text-white: #F8FAFC;
     --text-muted: #94A3B8;
     --font-heading: 'Inter', sans-serif;
@@ -91,7 +91,7 @@ body {
     z-index: -2;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    filter: brightness(0.4) saturate(1.2);
+    filter: brightness(0.6) saturate(1.1);
 }
 
 /* --- Floating Ambient Glow --- */
@@ -140,10 +140,10 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, 
-        rgba(2, 6, 23, 0.8) 0%, 
-        rgba(2, 6, 23, 0.4) 50%, 
-        rgba(2, 6, 23, 0.9) 100%);
-    z-index: -1;
+        rgba(2, 6, 23, 0.7) 0%, 
+        rgba(2, 6, 23, 0.3) 50%, 
+        rgba(2, 6, 23, 0.8) 100%);
+    z-index: 2;
 }
 
 .hero-content {
@@ -458,17 +458,6 @@ nav {
     /* Video above background but below overlay */
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(13, 13, 13, 0.7);
-    /* var(--bg-dark-transparent) */
-    z-index: 2;
-    /* Overlay above video */
-}
 
 .hero-content {
     position: relative;
@@ -655,6 +644,7 @@ nav {
     margin-bottom: 15px;
     background: linear-gradient(135deg, #fff 0%, var(--primary-glow) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
