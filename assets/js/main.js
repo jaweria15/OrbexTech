@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
     const heroLogo = document.getElementById('heroLogo');
     const scrollPosition = window.scrollY;
@@ -20,18 +20,18 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
 
-(function() {
+(function () {
     var hamburger = document.getElementById('navHamburger');
-    var navLinks  = document.getElementById('navLinks');
+    var navLinks = document.getElementById('navLinks');
     if (!hamburger || !navLinks) return;
 
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('active');
     });
 
-    navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
             navLinks.classList.remove('open');
             hamburger.classList.remove('active');
         });
@@ -52,7 +52,7 @@ let current = 0;
 function rotateCards() {
 
     cards.forEach(card => {
-        card.classList.remove('active','next','prev','hidden');
+        card.classList.remove('active', 'next', 'prev', 'hidden');
     });
 
     const total = cards.length;
@@ -83,7 +83,7 @@ function showDetail(serviceId, element) {
     document.querySelectorAll('.service-selector-card').forEach(card => {
         card.classList.remove('active');
     });
-    
+
     // 2. Add active class to clicked card
     element.classList.add('active');
 
@@ -94,7 +94,7 @@ function showDetail(serviceId, element) {
 
     // 4. Show the specific content
     const activeContent = document.getElementById('content-' + serviceId);
-    if(activeContent) {
+    if (activeContent) {
         activeContent.classList.add('active');
     }
 
@@ -107,7 +107,7 @@ function scrollToContact() {
 }
 
 /* ========== TEAM SPOTLIGHT CAROUSEL ========== */
-(function() {
+(function () {
     var carousel = document.getElementById("teamCarousel");
     var prevBtn = document.querySelector(".team-arrow-prev");
     var nextBtn = document.querySelector(".team-arrow-next");
@@ -118,7 +118,7 @@ function scrollToContact() {
     var spotlightIndex = Math.floor(total / 2);
 
     function updateSpotlight() {
-        cards.forEach(function(card, i) {
+        cards.forEach(function (card, i) {
             card.classList.toggle("spotlight", i === spotlightIndex);
         });
         var spotlightCard = cards[spotlightIndex];
@@ -127,20 +127,20 @@ function scrollToContact() {
         }
     }
 
-    cards.forEach(function(card, i) {
-        card.addEventListener("click", function() {
+    cards.forEach(function (card, i) {
+        card.addEventListener("click", function () {
             spotlightIndex = i;
             updateSpotlight();
         });
     });
     if (prevBtn) {
-        prevBtn.addEventListener("click", function() {
+        prevBtn.addEventListener("click", function () {
             spotlightIndex = (spotlightIndex - 1 + total) % total;
             updateSpotlight();
         });
     }
     if (nextBtn) {
-        nextBtn.addEventListener("click", function() {
+        nextBtn.addEventListener("click", function () {
             spotlightIndex = (spotlightIndex + 1) % total;
             updateSpotlight();
         });
@@ -149,7 +149,7 @@ function scrollToContact() {
 })();
 
 /* ========== WHY CHOOSE US — Count-up animation ========== */
-(function() {
+(function () {
     var section = document.getElementById("WhyChooseUs");
     if (!section) return;
 
@@ -176,15 +176,15 @@ function scrollToContact() {
     function runCounters() {
         if (done) return;
         done = true;
-        numbers.forEach(function(el) {
+        numbers.forEach(function (el) {
             var target = el.getAttribute("data-target");
             if (!target) return;
             animateValue(el, target, 1800);
         });
     }
 
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) runCounters();
         });
     }, { threshold: 0.25, rootMargin: "0px" });
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1,
         ease: "power2.out"
     });
-    
+
     gsap.to(["#about-sub", "#about-title", "#about-line"], {
         scrollTrigger: {
             trigger: "#Aboutus",
@@ -233,26 +233,26 @@ document.addEventListener('DOMContentLoaded', () => {
 //     const scene = new THREE.Scene();
 //     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 //     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    
+
 //     renderer.setSize(window.innerWidth, window.innerHeight);
 //     renderer.setClearColor(0x050505, 1); // Solid dark background
 //     container.appendChild(renderer.domElement);
 
 //     // --- SOFTWARE COMPANY VISUALS ---
-    
+
 //     // 1. Floating Code Particles (Binary/Matrix Style)
 //     const particleCount = 2000;
 //     const particlesGeo = new THREE.BufferGeometry();
 //     const particlesPos = new Float32Array(particleCount * 3);
-    
+
 //     for (let i = 0; i < particleCount; i++) {
 //         particlesPos[i*3] = (Math.random() - 0.5) * 30;
 //         particlesPos[i*3+1] = (Math.random() - 0.5) * 20;
 //         particlesPos[i*3+2] = (Math.random() - 0.5) * 30 - 10;
 //     }
-    
+
 //     particlesGeo.setAttribute('position', new THREE.BufferAttribute(particlesPos, 3));
-    
+
 //     // Create two types of particles
 //     const binaryParticles = new THREE.Points(
 //         particlesGeo,
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     // 2. Floating Code Snippets (using small cubes to represent code blocks)
 //     const codeBlocksGeo = new THREE.BoxGeometry(0.3, 0.1, 0.2);
 //     const codeMaterial = new THREE.MeshStandardMaterial({ color: 0xFFC132, emissive: 0x221100 });
-    
+
 //     for (let i = 0; i < 50; i++) {
 //         const block = new THREE.Mesh(codeBlocksGeo, codeMaterial);
 //         block.position.set(
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //     // 3. Central "Axon" Structure - Neural Network Style
 //     const axonGroup = new THREE.Group();
-    
+
 //     // Central sphere (the "brain")
 //     const coreGeo = new THREE.IcosahedronGeometry(1.2, 2);
 //     const coreMat = new THREE.MeshPhongMaterial({
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //             (Math.random() - 0.5) * 5,
 //             (Math.random() - 0.5) * 5
 //         ));
-        
+
 //         const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
 //         const lineMat = new THREE.LineBasicMaterial({ color: 0x635091, transparent: true, opacity: 0.3 });
 //         const line = new THREE.Line(lineGeo, lineMat);
@@ -323,17 +323,17 @@ document.addEventListener('DOMContentLoaded', () => {
 //     ctx.font = 'Bold 40px "Fira Code"';
 //     ctx.textAlign = 'center';
 //     ctx.textBaseline = 'middle';
-    
+
 //     const textures = ['0', '1', '</>', '{ }', '()', '[]'];
 //     for (let i = 0; i < 30; i++) {
 //         ctx.clearRect(0, 0, 64, 64);
 //         ctx.fillStyle = i % 2 === 0 ? '#635091' : '#FFC132';
 //         ctx.fillText(textures[i % textures.length], 32, 32);
-        
+
 //         const texture = new THREE.CanvasTexture(canvas);
 //         const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
 //         const sprite = new THREE.Sprite(material);
-        
+
 //         sprite.position.set(
 //             (Math.random() - 0.5) * 15,
 //             (Math.random() - 0.5) * 10,
@@ -355,11 +355,11 @@ document.addEventListener('DOMContentLoaded', () => {
 //     const light1 = new THREE.PointLight(0x635091, 1, 30);
 //     light1.position.set(2, 3, 4);
 //     scene.add(light1);
-    
+
 //     const light2 = new THREE.PointLight(0xFFC132, 0.5, 30);
 //     light2.position.set(-2, -1, 3);
 //     scene.add(light2);
-    
+
 //     const ambientLight = new THREE.AmbientLight(0x404040);
 //     scene.add(ambientLight);
 
@@ -369,18 +369,18 @@ document.addEventListener('DOMContentLoaded', () => {
 //     // Animation
 //     const animate = () => {
 //         requestAnimationFrame(animate);
-        
+
 //         // Rotate central group slowly
 //         axonGroup.rotation.y += 0.002;
 //         axonGroup.rotation.x += 0.001;
-        
+
 //         // Float particles
 //         binaryParticles.rotation.y += 0.0005;
-        
+
 //         // Pulse core
 //         const scale = 1 + Math.sin(Date.now() * 0.003) * 0.1;
 //         core.scale.set(scale, scale, scale);
-        
+
 //         renderer.render(scene, camera);
 //     };
 
@@ -403,7 +403,7 @@ function servicesApp() {
     return {
         showAll: false,
         services: [
-            { 
+            {
                 title: 'Software & <span class="text-[var(--accent-sky)]">Technology Solutions</span>',
                 icon: 'fas fa-code',
                 color: 'var(--accent-sky)',
@@ -412,7 +412,7 @@ function servicesApp() {
                 description: 'Custom ERP, CRM, and business process automation solutions tailored for modern enterprises.',
                 url: 'services/software-solutions.html'
             },
-            { 
+            {
                 title: 'E-Commerce & <span class="text-[var(--primary-blue)]">Web Development</span>',
                 icon: 'fas fa-store',
                 color: 'var(--primary-blue)',
@@ -421,7 +421,7 @@ function servicesApp() {
                 description: 'Scalable corporate websites and feature-rich e-commerce stores using modern frameworks.',
                 url: 'services/ecommerce-web.html'
             },
-            { 
+            {
                 title: 'Marketing & <span class="text-[var(--accent-sky)]">Growth</span>',
                 icon: 'fas fa-chart-line',
                 color: 'var(--accent-sky)',
@@ -430,7 +430,7 @@ function servicesApp() {
                 description: 'Advanced SEO, Social Media Strategy, and data-driven Paid Advertising campaigns.',
                 url: 'services/marketing-growth.html'
             },
-            { 
+            {
                 title: 'Creative & <span class="text-[var(--primary-blue)]">Branding</span>',
                 icon: 'fas fa-paint-brush',
                 color: 'var(--primary-blue)',
@@ -439,7 +439,7 @@ function servicesApp() {
                 description: 'High-end UI/UX design and compelling brand identity development for market leadership.',
                 url: 'services/creative-branding.html'
             },
-            { 
+            {
                 title: 'Advanced AI <span class="text-[var(--accent-sky)]">Services</span>',
                 icon: 'fas fa-robot',
                 color: 'var(--accent-sky)',
@@ -449,11 +449,11 @@ function servicesApp() {
                 url: 'services/advanced-ai.html'
             }
         ],
-        
+
         get visibleServices() {
             return this.showAll ? this.services : this.services.slice(0, 3);
         },
-        
+
         loadMore() {
             this.showAll = true;
             // Smooth scroll to newly visible services
@@ -464,13 +464,13 @@ function servicesApp() {
                 }
             }, 100);
         },
-        
+
         showLess() {
             this.showAll = false;
             // Scroll back to services section
             document.getElementById('Services').scrollIntoView({ behavior: 'smooth' });
         },
-        
+
         init() {
             // Add animation delay classes
             this.services.forEach((_, index) => {
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach((card, i) => {
             // Remove highlighting
             card.classList.remove('spotlight');
-            
+
             // On mobile, cards might be hidden, so we show the spotlighted one
             if (i === index) {
                 card.classList.add('spotlight');
@@ -531,4 +531,173 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCarousel(currentIndex);
         };
     }
-});
+});
+// --- Custom Toast Notification System ---
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('customToast');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+    const iconInner = toastIcon.querySelector('i');
+
+    toastMsg.textContent = message;
+
+    if (type === 'success') {
+        toastIcon.className = "w-10 h-10 rounded-full flex items-center justify-center bg-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)]";
+        iconInner.className = "fas fa-check text-white";
+    } else {
+        toastIcon.className = "w-10 h-10 rounded-full flex items-center justify-center bg-red-500 shadow-[0_0_20px_rgba(239,68,68,0.5)]";
+        iconInner.className = "fas fa-exclamation-triangle text-white";
+    }
+
+    gsap.to(toast, {
+        opacity: 1,
+        y: 20,
+        pointerEvents: 'auto',
+        duration: 0.5,
+        ease: "back.out(1.7)"
+    });
+
+    setTimeout(() => {
+        gsap.to(toast, {
+            opacity: 0,
+            y: -20,
+            pointerEvents: 'none',
+            duration: 0.5,
+            ease: "power2.in"
+        });
+    }, 4000);
+}
+
+// --- Contact Form EmailJS Integration ---
+(function () {
+    // Initialize EmailJS with your Public Key
+    emailjs.init("DNA9kAAGfJvCJngdu");
+
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Change button state to loading
+        const btn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span>Sending... <i class="fas fa-spinner fa-spin ml-2"></i></span>';
+
+        // serviceID - templateID - #formID
+        emailjs.sendForm('service_5xo4ihk', 'template_3n4frgd', this)
+            .then(() => {
+                // Success
+                btn.innerHTML = '<span>Sent Successfully! <i class="fas fa-check ml-2"></i></span>';
+                btn.classList.add('bg-green-600');
+
+                // Custom Notification instead of alert
+                showToast('Thank you! Your message has been sent successfully.', 'success');
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset button after 5 seconds
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnText;
+                    btn.classList.remove('bg-green-600');
+                }, 5000);
+            }, (err) => {
+                // Error
+                btn.disabled = false;
+                btn.innerHTML = '<span>Error! Try Again <i class="fas fa-exclamation-triangle ml-2"></i></span>';
+                btn.classList.add('bg-red-600');
+
+                showToast('Oops! Something went wrong. Please try again.', 'error');
+
+                setTimeout(() => {
+                    btn.innerHTML = originalBtnText;
+                    btn.classList.remove('bg-red-600');
+                }, 5000);
+            });
+    });
+})();
+
+// --- Premium Pre-loader Word-by-Word Animation ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Split into two lines
+    const line1 = ["You", "Think,", "We", "Build."];
+    const line2 = ["Welcome", "to", "Orbex", "Tech"];
+
+    const createWordSpans = (wordArr, container) => {
+        wordArr.forEach(word => {
+            const span = document.createElement('span');
+            span.textContent = word + ' ';
+            span.className = "inline-block opacity-0 translate-y-8"; // Removed blur-sm
+            container.appendChild(span);
+        });
+    };
+
+    const line1Div = document.createElement('div');
+    line1Div.className = "mb-4";
+    const line2Div = document.createElement('div');
+    line2Div.className = "text-accent-cyan"; // Make second line stand out slightly
+
+    createWordSpans(line1, line1Div);
+    createWordSpans(line2, line2Div);
+
+    loaderText.appendChild(line1Div);
+    loaderText.appendChild(line2Div);
+
+    const spans = loaderText.querySelectorAll('span');
+    const tl = gsap.timeline();
+
+    tl.to(loaderLine, {
+        width: "200px",
+        duration: 0.8,
+        ease: "power2.inOut"
+    })
+    .to(spans, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power3.out"
+    })
+    .to(loaderLine, {
+        width: "100%",
+        opacity: 0,
+        duration: 0.8,
+        ease: "power4.in",
+        delay: 0.5
+    })
+    .to(loaderText, {
+        y: -40,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.in"
+    })
+    .to(preloader, {
+        yPercent: -100,
+        duration: 1,
+        ease: "expo.inOut",
+        onComplete: () => {
+            preloader.remove(); // Clean up from DOM
+            
+            // Initial GSAP reveal animations with clearProps to avoid CSS conflicts
+            gsap.from(".main-header", { 
+                y: -100, 
+                opacity: 0, 
+                duration: 1.2, 
+                ease: "power4.out",
+                clearProps: "all" // CRITICAL: This allows CSS .scrolled translateX to work!
+            });
+            
+            gsap.from(".hero-content > *", { 
+                y: 50, 
+                opacity: 0, 
+                duration: 1, 
+                stagger: 0.2, 
+                ease: "power4.out",
+                clearProps: "filter" // Clear any lingering filters
+            });
+        }
+    });
+});

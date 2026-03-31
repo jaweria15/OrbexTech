@@ -17,11 +17,34 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
     <div class="ambient-glow"></div>
     <div class="ambient-glow ambient-glow-2"></div>
+
+    <!-- Custom Toast Notification -->
+    <div id="customToast" class="fixed top-8 left-1/2 -translate-x-1/2 z-[9999] opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-black/80 backdrop-blur-xl border border-white/10 px-8 py-4 rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center gap-4">
+            <div id="toastIcon" class="w-8 h-8 rounded-full flex items-center justify-center text-white">
+                <i class="fas fa-check"></i>
+            </div>
+            <p id="toastMessage" class="text-white font-medium tracking-wide text-sm sm:text-base"></p>
+        </div>
+    </div>
+
+    <!-- Premium Pre-loader Animation Overlay -->
+    <div id="preloader" class="fixed inset-0 z-[10000] bg-[#050505] flex items-center justify-center overflow-hidden">
+        <div class="text-center">
+            <div id="loaderText" class="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tighter overflow-hidden">
+                <!-- Animation words will be injected here -->
+            </div>
+            <div id="loaderLine" class="h-[2px] w-0 bg-gradient-to-r from-transparent via-[#7DD3FC] to-transparent mx-auto mt-6"></div>
+        </div>
+    </div>
 
     <header class="main-header" id="header">
         <div class="header-container">
@@ -508,20 +531,20 @@
                     <h3 class="text-2xl font-bold mb-8">Send us a <span class="text-gradient">Message</span></h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" required placeholder=" " />
+                            <input type="text" id="name" name="from_name" required placeholder=" " />
                             <label for="name" class="form-label">Full Name</label>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" id="email" required placeholder=" " />
+                            <input type="email" id="email" name="from_email" required placeholder=" " />
                             <label for="email" class="form-label">Email Address</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" required placeholder=" " />
+                            <input type="text" id="subject" name="subject" required placeholder=" " />
                             <label for="subject" class="form-label">Subject</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" required placeholder=" " rows="4"></textarea>
+                            <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
                             <label for="message" class="form-label">Your Message</label>
                         </div>
 
