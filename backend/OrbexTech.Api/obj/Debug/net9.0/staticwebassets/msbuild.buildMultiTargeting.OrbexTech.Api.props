@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\OrbexTech.Api.props" />
-</Project>
