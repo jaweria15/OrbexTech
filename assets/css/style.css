@@ -5,17 +5,18 @@
     --secondary-violet: #8B5CF6;
     --accent-cyan: #22D3EE;
     --accent-sky: #7DD3FC;
-    
+
     /* --- Deep Galactic Backgrounds --- */
-    --bg-base: #020617; /* Deep Navy, better than black */
+    --bg-base: #020617;
+    /* Deep Navy, better than black */
     --bg-card: rgba(15, 23, 42, 0.6);
     --bg-gradient: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
-    
+
     /* --- Glassmorphism & Borders --- */
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
     --hover-border: rgba(59, 130, 246, 0.4);
-    
+
     --white: #ffffff;
     --text-white: #F8FAFC;
     --text-muted: #94A3B8;
@@ -114,14 +115,26 @@ body {
 }
 
 @keyframes drift {
-    0% { transform: translate(-20%, -20%) scale(1); }
-    100% { transform: translate(20%, 20%) scale(1.2); }
+    0% {
+        transform: translate(-20%, -20%) scale(1);
+    }
+
+    100% {
+        transform: translate(20%, 20%) scale(1.2);
+    }
 }
 
 /* --- Smooth Reveal Animations --- */
 @keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .reveal-on-scroll {
@@ -139,10 +152,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, 
-        rgba(2, 6, 23, 0.7) 0%, 
-        rgba(2, 6, 23, 0.3) 50%, 
-        rgba(2, 6, 23, 0.8) 100%);
+    background: linear-gradient(to bottom,
+            rgba(2, 6, 23, 0.7) 0%,
+            rgba(2, 6, 23, 0.3) 50%,
+            rgba(2, 6, 23, 0.8) 100%);
     z-index: 2;
 }
 
@@ -160,7 +173,7 @@ body {
     --animation: gradient-angle linear infinite;
     --duration: 3s;
     --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
-    
+
     isolation: isolate;
     position: relative;
     overflow: hidden;
@@ -184,17 +197,16 @@ body {
 .btn::before {
     content: "";
     position: absolute;
-    inset: -2px; /* Pull outside */
+    inset: -2px;
+    /* Pull outside */
     padding: 2px;
     border-radius: inherit;
-    background: conic-gradient(
-        from var(--gradient-angle),
-        transparent,
-        var(--shiny-cta-highlight) 10%,
-        var(--gradient-shine) 20%,
-        var(--shiny-cta-highlight) 30%,
-        transparent 40%
-    );
+    background: conic-gradient(from var(--gradient-angle),
+            transparent,
+            var(--shiny-cta-highlight) 10%,
+            var(--gradient-shine) 20%,
+            var(--shiny-cta-highlight) 30%,
+            transparent 40%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -220,22 +232,25 @@ body {
 
 @keyframes gradient-angle {
     to {
-      --gradient-angle: 360deg;
+        --gradient-angle: 360deg;
     }
 }
 
 @keyframes shimmer {
     to {
-      rotate: 360deg;
+        rotate: 360deg;
     }
 }
 
 @keyframes breathe {
-    from, to {
-      scale: 1;
+
+    from,
+    to {
+        scale: 1;
     }
+
     50% {
-      scale: 1.1;
+        scale: 1.1;
     }
 }
 
@@ -245,7 +260,8 @@ section {
 }
 
 /* --- About & Cards Styling --- */
-.reveal-card, .service-card {
+.reveal-card,
+.service-card {
     background: var(--bg-card);
     backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
@@ -254,7 +270,8 @@ section {
     border-radius: 1.5rem;
 }
 
-.reveal-card:hover, .service-card:hover {
+.reveal-card:hover,
+.service-card:hover {
     border-color: var(--primary-glow);
     box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
     transform: translateY(-10px);
@@ -272,11 +289,13 @@ section {
     inset: 0;
     background: radial-gradient(circle at center, transparent 0%, var(--bg-base) 100%);
     opacity: 0.6;
-    z-index: 1; /* Retain z-index from original malformed rule */
+    z-index: 1;
+    /* Retain z-index from original malformed rule */
 }
 
 /* --- Section Headings --- */
-h1, h2 {
+h1,
+h2 {
     letter-spacing: -0.01em;
 }
 
@@ -307,12 +326,15 @@ h1, h2 {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    margin: 0 auto;
     width: 100%;
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     background: transparent;
     padding: 20px 0;
 }
+
 
 .main-header.scrolled {
     background: rgba(2, 6, 23, 0.85);
@@ -321,12 +343,11 @@ h1, h2 {
     margin-top: 15px;
     width: 90%;
     max-width: 1200px;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
     border-radius: 100px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
+
 
 .header-container {
     max-width: 1400px;
@@ -354,7 +375,9 @@ nav {
     gap: 35px;
 }
 
-.nav-links a { padding: 8px 18px; border-radius: 50px; 
+.nav-links a {
+    padding: 8px 18px;
+    border-radius: 50px;
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
@@ -408,7 +431,9 @@ nav {
     justify-content: center;
 }
 
-.nav-links a { padding: 8px 18px; border-radius: 50px; 
+.nav-links a {
+    padding: 8px 18px;
+    border-radius: 50px;
     font-size: 16px;
     font-weight: 500;
     color: var(--white);
@@ -516,7 +541,10 @@ nav {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
+    min-height: 550px;
+    /* Lock height to prevent page shaking */
 }
+
 
 .team-card {
     background: rgba(15, 23, 42, 0.4);
@@ -525,19 +553,31 @@ nav {
     border-radius: 20px;
     padding: 20px;
     width: 200px;
+    /* Original width for non-spotlight cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.6;
     transform: scale(0.85);
+    /* Original smaller scale for side cards */
+    cursor: pointer;
+    will-change: transform, opacity, width;
 }
 
 .team-card.spotlight {
     width: 280px;
+    /* Original larger width for the spotlight person */
     opacity: 1;
     transform: scale(1.1);
+    /* Original spotlight scale */
     border: 2px solid var(--primary-blue);
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
     z-index: 10;
 }
+
+
 
 .team-avatar-wrap {
     width: 80px;
@@ -594,8 +634,13 @@ nav {
     z-index: 50;
 }
 
-#teamPrev { left: 5%; }
-#teamNext { right: 5%; }
+#teamPrev {
+    left: 5%;
+}
+
+#teamNext {
+    right: 5%;
+}
 
 .team-nav-btn:hover {
     background: var(--primary-blue);
@@ -612,7 +657,8 @@ nav {
     background: transparent;
     color: white;
     font-weight: 700;
-    border-radius: 50px; /* Note: border-image disables border-radius usually, will use clip-path or pseudo-element if needed */
+    border-radius: 50px;
+    /* Note: border-image disables border-radius usually, will use clip-path or pseudo-element if needed */
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -2555,7 +2601,9 @@ body {
         display: flex;
     }
 
-    .nav-links a { padding: 8px 18px; border-radius: 50px; 
+    .nav-links a {
+        padding: 8px 18px;
+        border-radius: 50px;
         font-size: 22px;
     }
 
@@ -2829,63 +2877,82 @@ body {
 }
 
 /* Container transition */
+/* Unified Premium Form Controls - Notch Style */
 .form-group {
     position: relative;
     margin-bottom: 2rem;
     width: 100%;
 }
 
-/* Input settings - Boxed Style */
 .form-group input,
 .form-group textarea {
     width: 100%;
-    background: rgba(15, 23, 42, 0.6); /* Deep navy background */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Full box border */
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     padding: 18px 20px;
     font-size: 0.95rem;
-    color: var(--white);
+    color: var(--text-white);
     outline: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 120px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary-blue);
     background: rgba(15, 23, 42, 0.8);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 .form-label {
     position: absolute;
-    top: 18px;
+    top: 50%;
     left: 20px;
-    font-size: 0.85rem;
-    color: #94A3B8;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: var(--text-muted);
     pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background: transparent;
     padding: 0 5px;
     z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.form-group input:focus + .form-label,
-.form-group input:not(:placeholder-shown) + .form-label,
-.form-group textarea:focus + .form-label,
-.form-group textarea:not(:placeholder-shown) + .form-label {
-    top: 0;
-    transform: translateY(-50%) scale(0.85);
-    font-size: 0.85rem;
-    opacity: 1;
-    color: var(--primary-blue);
-    background: #0b1120; /* Matching background to mask the border line */
-    padding: 0 8px;
-    left: 15px;
-    font-weight: 600;
+.form-group textarea+.form-label {
+    top: 25px;
+    transform: none;
 }
+
+/* Floating Label Animation - Notch Effect (Sitting on border) */
+.form-group input:focus+.form-label,
+.form-group input:not(:placeholder-shown)+.form-label,
+.form-group textarea:focus+.form-label,
+.form-group textarea:not(:placeholder-shown)+.form-label {
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%) scale(0.8);
+    font-weight: 700;
+    color: var(--white);
+    /* Pure white for better readability and style */
+    background: #020617;
+    /* Deep navy matching the base background */
+    padding: 0 10px;
+    line-height: 1.2;
+    opacity: 1;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(125, 211, 252, 0.2);
+    /* Subtle glow */
+}
+
+
+
 
 /* --- Glitch Animation (Optional) --- */
 .form-group input:focus+.form-label::before {
@@ -3686,7 +3753,9 @@ nav {
     justify-content: center;
 }
 
-.nav-links a { padding: 8px 18px; border-radius: 50px; 
+.nav-links a {
+    padding: 8px 18px;
+    border-radius: 50px;
     font-size: 16px;
     font-weight: 500;
     color: var(--white);
@@ -5650,7 +5719,9 @@ nav {
         display: flex;
     }
 
-    .nav-links a { padding: 8px 18px; border-radius: 50px; 
+    .nav-links a {
+        padding: 8px 18px;
+        border-radius: 50px;
         font-size: 22px;
     }
 
@@ -5924,68 +5995,7 @@ nav {
 }
 
 /* --- Form Controls --- */
-.form-group {
-    position: relative;
-    margin-bottom: 35px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    background: rgba(2, 6, 23, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 18px 20px;
-    font-size: 1rem;
-    color: var(--white);
-    outline: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-group textarea {
-    resize: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    background: rgba(59, 130, 246, 0.05);
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
-}
-
-.form-label {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    pointer-events: none;
-    transition: all 0.3s ease;
-    background: transparent;
-}
-
-.form-group textarea + .form-label {
-    top: 25px;
-    transform: none;
-}
-
-/* Floating Label Animation */
-.form-group input:focus + .form-label,
-.form-group input:not(:placeholder-shown) + .form-label,
-.form-group textarea:focus + .form-label,
-.form-group textarea:not(:placeholder-shown) + .form-label {
-    top: -12px;
-    left: 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    background: var(--bg-base);
-    padding: 2px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+/* Form controls consolidated above */
 
 .info-details {
     margin-top: 40px;
@@ -6822,7 +6832,9 @@ nav {
 /* ===== EXTRA CYBERPUNK EFFECTS ===== */
 
 /* Neon border on hover for nav items */
-.nav-links a { padding: 8px 18px; border-radius: 50px; 
+.nav-links a {
+    padding: 8px 18px;
+    border-radius: 50px;
     border: 1px solid transparent;
     border-radius: 30px;
     padding: 8px 16px;
@@ -6904,14 +6916,26 @@ nav {
 }
 
 @keyframes drift {
-    0% { transform: translate(-20%, -20%) scale(1); }
-    100% { transform: translate(20%, 20%) scale(1.2); }
+    0% {
+        transform: translate(-20%, -20%) scale(1);
+    }
+
+    100% {
+        transform: translate(20%, 20%) scale(1.2);
+    }
 }
 
 /* --- Smooth Reveal Animations --- */
 @keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .reveal-on-scroll {

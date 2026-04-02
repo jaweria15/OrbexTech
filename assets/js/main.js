@@ -521,6 +521,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Add click event to each card for direct selection
+    cards.forEach((card, i) => {
+        card.addEventListener('click', () => {
+            currentIndex = i;
+            updateCarousel(i);
+        });
+    });
+
     if (nextBtn && prevBtn) {
         nextBtn.onclick = () => {
             currentIndex = (currentIndex + 1) % cards.length;
@@ -532,6 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 });
+
 // --- Custom Toast Notification System ---
 function showToast(message, type = 'success') {
     const toast = document.getElementById('customToast');
@@ -571,7 +580,7 @@ function showToast(message, type = 'success') {
 // --- Contact Form EmailJS Integration ---
 (function () {
     // Initialize EmailJS with your Public Key
-    emailjs.init("DNA9kAAGfJvCJngdu");
+    emailjs.init("wqokni0-grYTFQFEJ");
 
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
@@ -586,7 +595,7 @@ function showToast(message, type = 'success') {
         btn.innerHTML = '<span>Sending... <i class="fas fa-spinner fa-spin ml-2"></i></span>';
 
         // serviceID - templateID - #formID
-        emailjs.sendForm('service_5xo4ihk', 'template_3n4frgd', this)
+        emailjs.sendForm('service_nbxr8nj', 'template_mhg6ws6', this)
             .then(() => {
                 // Success
                 btn.innerHTML = '<span>Sent Successfully! <i class="fas fa-check ml-2"></i></span>';
@@ -654,50 +663,50 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.8,
         ease: "power2.inOut"
     })
-    .to(spans, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: "power3.out"
-    })
-    .to(loaderLine, {
-        width: "100%",
-        opacity: 0,
-        duration: 0.8,
-        ease: "power4.in",
-        delay: 0.5
-    })
-    .to(loaderText, {
-        y: -40,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.in"
-    })
-    .to(preloader, {
-        yPercent: -100,
-        duration: 1,
-        ease: "expo.inOut",
-        onComplete: () => {
-            preloader.remove(); // Clean up from DOM
-            
-            // Initial GSAP reveal animations with clearProps to avoid CSS conflicts
-            gsap.from(".main-header", { 
-                y: -100, 
-                opacity: 0, 
-                duration: 1.2, 
-                ease: "power4.out",
-                clearProps: "all" // CRITICAL: This allows CSS .scrolled translateX to work!
-            });
-            
-            gsap.from(".hero-content > *", { 
-                y: 50, 
-                opacity: 0, 
-                duration: 1, 
-                stagger: 0.2, 
-                ease: "power4.out",
-                clearProps: "filter" // Clear any lingering filters
-            });
-        }
-    });
+        .to(spans, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power3.out"
+        })
+        .to(loaderLine, {
+            width: "100%",
+            opacity: 0,
+            duration: 0.8,
+            ease: "power4.in",
+            delay: 0.5
+        })
+        .to(loaderText, {
+            y: -40,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.in"
+        })
+        .to(preloader, {
+            yPercent: -100,
+            duration: 1,
+            ease: "expo.inOut",
+            onComplete: () => {
+                preloader.remove(); // Clean up from DOM
+
+                // Initial GSAP reveal animations with clearProps to avoid CSS conflicts
+                gsap.from(".main-header", {
+                    y: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power4.out",
+                    clearProps: "all" // CRITICAL: This allows CSS .scrolled translateX to work!
+                });
+
+                gsap.from(".hero-content > *", {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power4.out",
+                    clearProps: "filter" // Clear any lingering filters
+                });
+            }
+        });
 });
