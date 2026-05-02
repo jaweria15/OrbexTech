@@ -744,6 +744,12 @@ nav {
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+.info-content {
+    position: relative;
+    z-index: 10;
 }
 
 
@@ -934,7 +940,6 @@ nav {
 .footer-logo {
     max-width: 200px;
     margin-bottom: 5px;
-    filter: brightness(0) invert(1);
 }
 
 .subsidiary {
@@ -1411,10 +1416,17 @@ nav {
 }
 
 .detail-box i {
-    color: var(--accent-gold);
-    font-size: 20px;
-    width: 25px;
-    text-align: center;
+    width: 45px;
+    height: 45px;
+    background: #7DD3FC;
+    color: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .detail-box p {
@@ -3703,7 +3715,6 @@ nav {
 .footer-logo {
     max-width: 200px;
     margin-bottom: 5px;
-    filter: brightness(0) invert(1);
 }
 
 .subsidiary {
@@ -4531,10 +4542,17 @@ nav {
 }
 
 .detail-box i {
-    color: var(--accent-gold);
-    font-size: 20px;
-    width: 25px;
-    text-align: center;
+    width: 45px;
+    height: 45px;
+    background: #7DD3FC;
+    color: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .detail-box p {
@@ -5695,15 +5713,20 @@ nav {
 .detail-box i {
     width: 45px;
     height: 45px;
-    background: rgba(255, 255, 255, 0.15);
+    background: #7DD3FC; /* Using the bright brand blue for high visibility */
+    color: #020617; /* Dark black/blue for contrast */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 50%;
     font-size: 1.2rem;
-    color: white;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.detail-box:hover i {
+    background: white;
+    transform: scale(1.1);
 }
 
 .detail-box p strong {

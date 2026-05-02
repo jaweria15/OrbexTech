@@ -50,7 +50,7 @@
         <div class="header-container">
             <nav>
                 <div class="nav-logo" id="navLogo">
-                    <img src="assets/images/logo1.png" alt="OrbexTech Logo" class="footer-logo">
+                    <img src="assets/images/logo1.png" alt="OrbexTech Logo">
                 </div>
                 <div class="nav-links" id="navLinks">
                     <a href="#home">Home</a>
@@ -58,7 +58,6 @@
                     <a href="#Services">Services</a>
                     <a href="#Process">Workflow</a>
                     <a href="#Team">Team</a>
-                    <a href="#contact">Contact</a>
                 </div>
                 <button class="btn nav-contact-btn " onclick="scrollToContact()"><span>Contact Us</span></button>
                 <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
@@ -378,75 +377,127 @@
                 minds turning your ideas into reality.</p>
         </div>
 
-        <div class="team-carousel-container">
+        <div class="relative w-full max-w-[1400px] mx-auto flex items-center min-h-[550px]">
             <!-- Left Arrow -->
-            <button class="team-nav-btn" id="teamPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="team-nav-btn absolute left-2 md:left-[5%] z-20" id="teamPrev"><i
+                    class="fas fa-chevron-left"></i></button>
 
-            <!-- Card 1 -->
-            <div class="team-card hidden lg:block">
+            <div class="flex overflow-x-auto items-center w-full gap-8 py-12 px-[10%] md:px-[30%] lg:px-[40%] scroll-smooth hide-scrollbar" id="teamTrack" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Card 1 -->
+            <div class="team-card">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" alt="Arsalan">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/ZorainRizvi.jpeg" alt="Zorain Rizvi">
                 </div>
-                <h4>Arsalan A.</h4>
-                <p>Senior Developer</p>
+                <h4>Zorain Rizvi</h4>
+                <p>Calling TL</p>
             </div>
 
             <!-- Card 2 -->
-            <div class="team-card hidden md:block">
+            <div class="team-card">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Sara">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/RayyanKashif.jpeg" alt="Rayyan Kashif">
                 </div>
-                <h4>Sara Khan</h4>
-                <p>UI/UX Designer</p>
+                <h4>Rayyan Kashif</h4>
+                <p>Sales Manager Outdoor</p>
             </div>
 
             <!-- Card 3 -->
             <div class="team-card">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150" alt="Zain">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/MunhibBaig.jpeg" alt="Munhib Baig">
                 </div>
-                <h4>Zain Malik</h4>
-                <p>Lead Architect</p>
+                <h4>Munhib Baig</h4>
+                <p>Team Leader (Chat base)</p>
             </div>
 
-            <!-- Card 4 (Spotlight Center) -->
-            <div class="team-card spotlight">
+            <!-- Card 4 -->
+            <div class="team-card">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300" alt="CEO">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/FazlerabbiUddinKhan.jpeg" alt="Fazlerabbi Uddin Khan">
                 </div>
-                <h4>Muhammad Waris Karim</h4>
-                <p>CEO & Founder</p>
+                <h4>Fazlerabbi U.</h4>
+                <p>Sale Manager (Chat)</p>
             </div>
 
             <!-- Card 5 -->
             <div class="team-card">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" alt="Bilal">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/AbdulHaseeb.jpeg" alt="Abdul Haseeb">
                 </div>
-                <h4>Bilal Raza</h4>
-                <p>DevOps Engineer</p>
+                <h4>Abdul Haseeb</h4>
+                <p>HR</p>
             </div>
 
-            <!-- Card 6 -->
-            <div class="team-card hidden md:block">
+            <!-- Card 6 (Spotlight Center) -->
+            <div class="team-card spotlight">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150" alt="Omar">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/MuhammadWarisKarim.jpeg" alt="CEO">
                 </div>
-                <h4>Omar Farooq</h4>
-                <p>Cloud Analyst</p>
+                <h4>Muhammad Waris Karim</h4>
+                <p>CEO & Founder</p>
             </div>
 
             <!-- Card 7 -->
-            <div class="team-card hidden lg:block">
+            <div class="team-card">
                 <div class="team-avatar-wrap">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150" alt="Hiba">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/IbadSharif.jpeg" alt="Ibaad Sharif">
                 </div>
-                <h4>Hiba Noor</h4>
-                <p>Frontend Dev</p>
+                <h4>Ibaad Sharif</h4>
+                <p>Developer</p>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="team-card">
+                <div class="team-avatar-wrap">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/AishaAyaz.jpeg" alt="Aisha Ayaz">
+                </div>
+                <h4>Aisha Ayaz</h4>
+                <p>Graphic Designer</p>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="team-card">
+                <div class="team-avatar-wrap">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/MuhammadFurqanNasir.jpeg" alt="Muhammad Furqan Nasir">
+                </div>
+                <h4>M. Furqan Nasir</h4>
+                <p>Project Architecture</p>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="team-card">
+                <div class="team-avatar-wrap">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/SyedMuhammadAliRizvi.jpeg" alt="Syed Muhammad Ali Rizvi">
+                </div>
+                <h4>S.M. Ali Rizvi</h4>
+                <p>Assistant Calling TL</p>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="team-card">
+                <div class="team-avatar-wrap">
+                    <!-- CHANGE IMAGE HERE: Update the src attribute below -->
+                    <img src="assets/images/Jaweria.jpeg" alt="Jaweria">
+                </div>
+                <h4>Jaweria</h4>
+                <p>Web Developer</p>
+            </div>
+
             </div>
 
             <!-- Right Arrow -->
-            <button class="team-nav-btn" id="teamNext"><i class="fas fa-chevron-right"></i></button>
+            <button class="team-nav-btn absolute right-2 md:right-[5%] z-20" id="teamNext"><i
+                    class="fas fa-chevron-right"></i></button>
         </div>
 
         <a href="team.html" class="btn mt-12">
@@ -570,20 +621,26 @@
                         <div class="info-details">
                             <div class="detail-box">
                                 <i class="fas fa-location-dot"></i>
-                                <p><strong>Address:</strong> ST-004, Sector R-2, Gulshan-e-Maymar, KDA Scheme 45,
-                                    Karachi, Pakistan</p>
+                                <p><strong>Address:</strong> <a
+                                        href="https://maps.google.com/?q=24HQ%2BJV2+Gulshan-e-Maymar,+Karachi,+Pakistan"
+                                        target="_blank" class="hover:text-[#3B82F6] transition-colors">ST-004, Sector
+                                        R-2, Gulshan-e-Maymar, KDA Scheme 45,
+                                        Karachi, Pakistan</a></p>
                             </div>
                             <div class="detail-box">
                                 <i class="fas fa-phone"></i>
-                                <p><strong>Phone:</strong> +92 337 3032131</p>
+                                <p><strong>Phone:</strong> <a href="tel:+923373032131"
+                                        class="hover:text-[#3B82F6] transition-colors">+92 337 3032131</a></p>
                             </div>
                             <div class="detail-box">
                                 <i class="fas fa-envelope"></i>
-                                <p><strong>Email:</strong> info@orbextech.com</p>
+                                <p><strong>Email:</strong> <a href="mailto:info@orbextech.com"
+                                        class="hover:text-[#3B82F6] transition-colors">info@orbextech.com</a></p>
                             </div>
                             <div class="detail-box">
                                 <i class="fas fa-globe"></i>
-                                <p><strong>Website:</strong> orbextech.com</p>
+                                <p><strong>Website:</strong> <a href="https://www.orbextech.com" target="_blank"
+                                        class="hover:text-[#3B82F6] transition-colors">orbextech.com</a></p>
                             </div>
                         </div>
                     </div>

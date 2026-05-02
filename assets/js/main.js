@@ -229,24 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.team-card');
     const nextBtn = document.getElementById('teamNext');
     const prevBtn = document.getElementById('teamPrev');
-    let currentIndex = 3; // Center: Muhammad Waris Karim
+    let currentIndex = Math.floor(cards.length / 2); // Dynamically center the spotlight card
 
     function updateCarousel(index) {
         cards.forEach((card, i) => {
-            // Remove highlighting
-            card.classList.remove('spotlight');
-
-            // On mobile, cards might be hidden, so we show the spotlighted one
             if (i === index) {
                 card.classList.add('spotlight');
-                card.classList.remove('hidden');
-                // Scroll into view on mobile
-                if (window.innerWidth < 1024) {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                }
+                // Use scrollIntoView to horizontally center the card within the track
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             } else {
-                // Restore responsive hide classes for non-spotlight if needed
-                // But generally, the layout handles this.
+                card.classList.remove('spotlight');
             }
         });
     }
@@ -269,6 +261,11 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCarousel(currentIndex);
         };
     }
+
+    // Initialize carousel on load with a slight delay to ensure DOM is ready
+    setTimeout(() => {
+        updateCarousel(currentIndex);
+    }, 100);
 });
 
 // --- Custom Toast Notification System ---
